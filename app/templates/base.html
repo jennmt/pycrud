@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <div>
+        {% block head %} {% endblock %}
+    </div>
+    <div>
+        <nav>
+            <li>
+                <a href="/">Inicio</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+                <a href="/signout">SignOut</a>
+            </li>
+            <li>
+                <a href="/tasks/">Tasks</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="/signup/">SignUp</a>
+            </li>
+            <li>
+                <a href="/signin/">SignIn</a>
+            </li>
+            {% endif %}
+        </nav>
+    </div>
+    {% block content %}
+    
+    {% endblock %}
+</body>
+</html>
